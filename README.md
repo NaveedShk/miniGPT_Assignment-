@@ -17,7 +17,7 @@ raw text ─► char tokenizer ─► (B,T) ids ─► token emb·√C + sinusoi
 | | |
 |---|---|
 | Live API (Render) | [https://minigpt-assignment.onrender.com](https://minigpt-assignment.onrender.com/)  (interactive docs at [`/docs`](https://minigpt-assignment.onrender.com/docs)) |
-| Technical report (Medium) | `https://medium.com/@<you>/<article-slug>` |
+| Technical report (Medium) | [Building a GPT from Scratch: An 810K-Parameter Shakespeare Model](https://medium.com/@rnafast27/building-a-gpt-from-scratch-an-810k-parameter-shakespeare-model-one-tensor-at-a-time-c828f000da4b) |
 | Demo video | `<link>` |
 | Colab run with all outputs | [`notebooks/MiniGPT_Colab_executed.ipynb`](notebooks/MiniGPT_Colab_executed.ipynb) |
 
@@ -45,7 +45,7 @@ The free Render instance sleeps when idle; the first request after a pause takes
 | Three required ablations | `outputs/ablation/ablation_results.md` + `ablation_{depth,heads,context}.png` (+ optional position) |
 | Final parameter count and training configuration | [Baseline configuration](#baseline-configuration), `configs/tiny_gpt.yaml`, `outputs/logs/tiny_gpt_summary.json` |
 | CLI/API inference works | `outputs/logs/generate_cli.txt`, `outputs/logs/api_demo_colab.txt`, `tests/test_api.py`, live Render URL + `docs/screenshots/` |
-| Technical report submitted as Medium article | link above (draft: [`docs/technical_report.md`](docs/technical_report.md)) |
+| Technical report submitted as Medium article | [published on Medium](https://medium.com/@rnafast27/building-a-gpt-from-scratch-an-810k-parameter-shakespeare-model-one-tensor-at-a-time-c828f000da4b) (source text: [`docs/medium_article.md`](docs/medium_article.md)) |
 | No secrets or unnecessary large artifacts | `.gitignore`; dataset is downloaded by code; only the 3 MB baseline checkpoint is committed |
 | All sources are cited | [References](#references) |
 
