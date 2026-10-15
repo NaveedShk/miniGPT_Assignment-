@@ -1,9 +1,10 @@
 # Hand-calculated attention (Figure 1)
 
-> **TODO before submitting:** photograph or scan your handwritten calculation and save it in this
-> folder as `hand_calculation_page1.jpg` (and `_page2.jpg`, … if needed). Then delete this TODO line.
+Worked step by step (Q Kᵀ → scale → softmax → · V, then the causal-mask version):
 
-![Hand calculation, page 1](hand_calculation_page1.jpg)
+![Attention calculation, steps 0-4](attention_calculation_part1.png)
+
+![Attention calculation with the causal mask, steps 5-7](attention_calculation_part2_causal_mask.png)
 
 ## The example worked by hand
 
@@ -15,7 +16,7 @@ Q = K = [[1, 0],        V = [[1, 2],
          [1, 1]]             [5, 6]]
 ```
 
-Steps to show on paper: (1) Q Kᵀ, (2) divide by √2, (3) row-wise softmax, (4) multiply by V,
+Steps shown: (1) Q Kᵀ, (2) divide by √2, (3) row-wise softmax, (4) multiply by V,
 then repeat with the causal mask: (5) set the upper triangle to −∞, (6) softmax, (7) multiply by V.
 
 ## Check against the code
