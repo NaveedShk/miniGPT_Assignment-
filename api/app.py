@@ -28,7 +28,9 @@ STATE: dict = {}
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    torch.set_num_threads(max(1, min(4, os.cpu_count() or 1)))
+    # Small model + small shared CPU on free hosting: extra threads only add overhead.
+    # Override with TORCH_NUM_THREADS if the host has dedicated cores.
+    torch.set_num_threads(int(os.environ.get("TORCH_NUM_THREADS", "1")))
     model, tok, ckpt = load_checkpoint(CHECKPOINT_PATH, "cpu")
     STATE.update(model=model, tokenizer=tok, ckpt=ckpt)
     yield

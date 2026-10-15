@@ -16,10 +16,16 @@ raw text ─► char tokenizer ─► (B,T) ids ─► token emb·√C + sinusoi
 
 | | |
 |---|---|
-| Live API (Render) | `https://<your-service>.onrender.com/`  (interactive docs at `/docs`) |
+| Live API (Render) | [https://minigpt-assignment.onrender.com](https://minigpt-assignment.onrender.com/)  (interactive docs at [`/docs`](https://minigpt-assignment.onrender.com/docs)) |
 | Technical report (Medium) | `https://medium.com/@<you>/<article-slug>` |
 | Demo video | `<link>` |
 | Colab run with all outputs | [`notebooks/MiniGPT_Colab_executed.ipynb`](notebooks/MiniGPT_Colab_executed.ipynb) |
+
+The free Render instance sleeps when idle; the first request after a pause takes about a minute to wake it.
+
+| Live web page (`/`) | Interactive API docs (`/docs`) |
+|---|---|
+| ![Live generation on Render](docs/screenshots/render_live_demo.png) | ![FastAPI docs on Render](docs/screenshots/render_api_docs.png) |
 
 ![MiniGPT architecture](docs/architecture.png)
 
@@ -38,7 +44,7 @@ raw text ─► char tokenizer ─► (B,T) ids ─► token emb·√C + sinusoi
 | At least five generation samples | `outputs/samples/evaluation.md` (5 fixed prompts + decoding comparison), `outputs/samples/tiny_gpt.txt`, `outputs/logs/generate_cli.txt` |
 | Three required ablations | `outputs/ablation/ablation_results.md` + `ablation_{depth,heads,context}.png` (+ optional position) |
 | Final parameter count and training configuration | [Baseline configuration](#baseline-configuration), `configs/tiny_gpt.yaml`, `outputs/logs/tiny_gpt_summary.json` |
-| CLI/API inference works | `outputs/logs/generate_cli.txt`, `outputs/logs/api_demo_colab.txt`, `tests/test_api.py`, live Render URL |
+| CLI/API inference works | `outputs/logs/generate_cli.txt`, `outputs/logs/api_demo_colab.txt`, `tests/test_api.py`, live Render URL + `docs/screenshots/` |
 | Technical report submitted as Medium article | link above (draft: [`docs/technical_report.md`](docs/technical_report.md)) |
 | No secrets or unnecessary large artifacts | `.gitignore`; dataset is downloaded by code; only the 3 MB baseline checkpoint is committed |
 | All sources are cited | [References](#references) |

@@ -2,7 +2,7 @@
 
 *A technical report on MiniGPT, a character-level, decoder-only Transformer written in plain PyTorch, trained on Tiny Shakespeare and deployed as a live API.*
 
-**Code:** `<your GitHub repo URL>` · **Live demo:** `<your Render URL>` · **Demo video:** `<your video link>`
+**Code:** [https://github.com/NaveedShk/miniGPT_Assignment-](https://github.com/NaveedShk/miniGPT_Assignment-) · **Live demo:** [https://minigpt-assignment.onrender.com](https://minigpt-assignment.onrender.com) · **Demo video:** `<your video link>`
 
 ---
 
@@ -222,10 +222,10 @@ Each ablation changes one factor from the baseline, for 2000 steps with the same
 
 The model is served with **FastAPI** (`api/app.py`): `POST /generate`, `GET /info`, `GET /health`, a small web page at `/` and interactive docs at `/docs`. It runs on Render's free plan using `render.yaml` (CPU-only PyTorch). The 3 MB checkpoint is loaded with `torch.load(weights_only=True)`, so a downloaded checkpoint can't execute arbitrary code.
 
-> 🖼️ **[Insert screenshot of your live Render page]**
+> 🖼️ **[Insert docs/screenshots/render_live_demo.png]**
 
 ```bash
-curl -X POST https://<your-service>.onrender.com/generate \
+curl -X POST https://minigpt-assignment.onrender.com/generate \
   -H "Content-Type: application/json" \
   -d '{"prompt": "ROMEO:", "max_new_tokens": 200, "seed": 0}'
 ```
