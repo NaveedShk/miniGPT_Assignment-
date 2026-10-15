@@ -1,0 +1,35 @@
+digraph MiniGPT {
+  rankdir=TB; nodesep=0.35; ranksep=0.28;
+  node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=11, fillcolor="#F4F4F2", color="#888780", width=3.6];
+  edge [color="#5F5E5A", fontname="Helvetica", fontsize=9, arrowsize=0.7];
+  label="MiniGPT — decoder-only Transformer (809,984 parameters)\n "; labelloc=t; fontname="Helvetica-Bold"; fontsize=14;
+
+  text  [label="Input text  \"ROMEO:\"", fillcolor="#FFFFFF"];
+  tok   [label="Character tokenizer (vocab = 65)\n→ token ids  (B, T)   T ≤ 128"];
+  emb   [label="Token embedding 65×128,  × √128\n(B, T, 128)", fillcolor="#E6F1FB", color="#185FA5"];
+  pe    [label="+ Sinusoidal positional encoding\n(T, 128), no parameters", fillcolor="#E6F1FB", color="#185FA5"];
+  drop  [label="Dropout 0.1"];
+
+  subgraph cluster_block {
+    label="Transformer block  × 4   (pre-LayerNorm)"; fontname="Helvetica-Bold"; fontsize=12;
+    style="rounded,dashed"; color="#534AB7"; margin=14;
+    ln1  [label="LayerNorm"];
+    mha  [label="Causal multi-head self-attention\n4 heads × 32 dims   Q,K,V: (B,4,T,32)\nsoftmax(QKᵀ/√32 + mask) V  →  concat  →  W_o", fillcolor="#EEEDFE", color="#534AB7"];
+    add1 [label="+", shape=circle, width=0.4, fixedsize=true, xlabel="residual add", fillcolor="#FFFFFF"];
+    ln2  [label="LayerNorm"];
+    ffn  [label="Feed-forward  128 → 512 → 128\nGELU, dropout", fillcolor="#EEEDFE", color="#534AB7"];
+    add2 [label="+", shape=circle, width=0.4, fixedsize=true, xlabel="residual add", fillcolor="#FFFFFF"];
+    ln1 -> mha -> add1 -> ln2 -> ffn -> add2;
+  }
+  lnf  [label="Final LayerNorm"];
+  head [label="LM head  Linear 128 → 65\nlogits (B, T, 65)", fillcolor="#FAEEDA", color="#BA7517"];
+  loss [label="Training: cross-entropy vs. targets shifted by one\ny = ids[i+1 : i+T+1]", fillcolor="#FAEEDA", color="#BA7517"];
+  gen  [label="Inference: logits[:, -1] → temperature / top-k / top-p\n→ sample next char → append → repeat", fillcolor="#EAF3DE", color="#3B6D11"];
+
+  text -> tok -> emb -> pe -> drop -> ln1;
+  drop -> add1 [style=dashed, label=" skip", constraint=false];
+  add1 -> add2 [style=dashed, label=" skip", constraint=false];
+  add2 -> lnf -> head;
+  head -> loss; head -> gen;
+  gen -> tok [style=dotted, label=" autoregressive loop", constraint=false];
+}

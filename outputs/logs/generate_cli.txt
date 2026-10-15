@@ -1,0 +1,78 @@
+>>> CELL 16 !python -m src.generate --prompt "ROMEO:" --max-new-tokens 300 --seed 0
+!python -m src.generate --prompt "JULIET:" --max-new-tokens 300 --seed 0
+!python -m src.generate --prompt "To be, or not to be" --max-new-tokens 300 --temperature 0
+Prompt: ROMEO:
+Generated: ROMEO:
+Say this earth? Hoise! shall I have have been
+For not give my hour friends, for I shall be
+To say the faithful shall be commplor there's disease.
+If your servant Naunt, and the partise of the flies
+Unso the each of wrongs cannot seem for love.
+
+ESCALUS:
+Let her breath he me to thy most demand
+Have 
+
+model parameters: 810.0K (809,984)
+layers/heads/d_model: 4/4/128 | vocab: 65
+context length: 128
+temperature: 0.8 | top_k: None | top_p: None | seed: 0
+checkpoint: /content/transformer-gpt-assignment/checkpoints/tiny_gpt.pt (step 4750, val loss 1.4928)
+device: cuda
+Prompt: JULIET:
+Generated: JULIET:
+I am I not like more of you.
+
+DUKE OF AUMERLE:
+And we have my life in the provided with your brother,
+Which he shall be come to any remedy.
+
+QUEEN MARGARET:
+Then Norfolk, the drum that but be in the day,
+Sudden by your prevails do it.
+
+CLARENCE:
+I was not be ever worful boy, or poor man.
+Romeo, tha
+
+model parameters: 810.0K (809,984)
+layers/heads/d_model: 4/4/128 | vocab: 65
+context length: 128
+temperature: 0.8 | top_k: None | top_p: None | seed: 0
+checkpoint: /content/transformer-gpt-assignment/checkpoints/tiny_gpt.pt (step 4750, val loss 1.4928)
+device: cuda
+Prompt: To be, or not to be
+Generated: To be, or not to be the courteous state,
+And the prince of the court of the court,
+And the prince of the seat of the seat of the sea
+That the state of the state of the seat of the sea
+That the state of the state of the state of the sea
+That the state of the state of the state of the sea
+That the state of the state of 
+
+model parameters: 810.0K (809,984)
+layers/heads/d_model: 4/4/128 | vocab: 65
+context length: 128
+temperature: 0.0 | top_k: None | top_p: None | seed: None
+checkpoint: /content/transformer-gpt-assignment/checkpoints/tiny_gpt.pt (step 4750, val loss 1.4928)
+device: cuda
+
+>>> CELL 25 # os.environ["CHECKPOINT_URL"] = "https://drive.google.com/file/d/<FILE_ID>/view?usp=sharing"
+!python -m src.generate --checkpoint checkpoints/tiny_gpt.pt --prompt "ROMEO:" --seed 1
+Prompt: ROMEO:
+Generated: ROMEO:
+If yet my heart is uncle.
+
+MENENIUS:
+Stay, the gods of his complain to knave
+A wife and next that I never be like breath,
+As there sweety to the end, sir, we will be false
+There in happy pleased hast
+
+model parameters: 810.0K (809,984)
+layers/heads/d_model: 4/4/128 | vocab: 65
+context length: 128
+temperature: 0.8 | top_k: None | top_p: None | seed: 1
+checkpoint: checkpoints/tiny_gpt.pt (step 4750, val loss 1.4928)
+device: cuda
+

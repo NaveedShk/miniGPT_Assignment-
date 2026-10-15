@@ -1,0 +1,28 @@
+
+[A] causal attention + next-token (GPT)
+{
+  "description": "causal attention + next-token (GPT)",
+  "final_train_loss": 1.8509,
+  "val_loss_scored_positions": 1.9694,
+  "val_loss_last_position_only": 1.9131
+}
+sample: ROMEO: / Thre his know sell meded yoer, yet in I to the Mecouses, / Or naw here hath gooose hellsse of him / st at of tor it be mances in enforr nend hat th
+
+[B] bidirectional attention + next-token (leaky)
+{
+  "description": "bidirectional attention + next-token (leaky)",
+  "final_train_loss": 0.0419,
+  "val_loss_scored_positions": 0.0422,
+  "val_loss_last_position_only": 2.4829
+}
+sample: ROMEO:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+[C] bidirectional attention + masked-LM (BERT)
+{
+  "description": "bidirectional attention + masked-LM (BERT)",
+  "final_train_loss": 2.8469,
+  "val_loss_scored_positions": 2.7904,
+  "val_loss_last_position_only": null
+}
+
+saved E:\Practice\AI Engineering\transformer-gpt-assignment\outputs\logs\mask_comparison.json, fig_mlm_vs_clm_masks.png, fig_mlm_vs_clm_losses.png

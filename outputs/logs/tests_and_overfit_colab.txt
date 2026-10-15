@@ -1,0 +1,12 @@
+>>> CELL 5 !python -m pytest -q
+.................................                                        [100%]
+
+>>> CELL 6 !python -m src.train --overfit
+overfit step    0 | loss 4.1957
+overfit step   50 | loss 0.1792
+overfit step  100 | loss 0.0061
+overfit step  150 | loss 0.0032
+overfit step  200 | loss 0.0022
+overfit step  250 | loss 0.0016
+initial loss 4.1957 (log V = 4.1744) -> final 0.0013
+

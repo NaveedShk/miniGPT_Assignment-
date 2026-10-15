@@ -1,0 +1,67 @@
+{
+  "device": "cuda",
+  "B": 16,
+  "d": 128,
+  "rows": [
+    {
+      "T": 16,
+      "rnn_loop_ms": 1.3584326000000146,
+      "rnn_fused_ms": 0.2615047000006143,
+      "attention_ms": 0.6104774999982965,
+      "rnn_sequential_steps": 16,
+      "attention_sequential_steps": 1,
+      "attention_scores_MB": 0.0625,
+      "rnn_hidden_states_MB": 0.125
+    },
+    {
+      "T": 32,
+      "rnn_loop_ms": 3.557260600001655,
+      "rnn_fused_ms": 0.23414194999986648,
+      "attention_ms": 0.6014840000005961,
+      "rnn_sequential_steps": 32,
+      "attention_sequential_steps": 1,
+      "attention_scores_MB": 0.25,
+      "rnn_hidden_states_MB": 0.25
+    },
+    {
+      "T": 64,
+      "rnn_loop_ms": 6.762234500001796,
+      "rnn_fused_ms": 0.23488920000147573,
+      "attention_ms": 0.5517229499986342,
+      "rnn_sequential_steps": 64,
+      "attention_sequential_steps": 1,
+      "attention_scores_MB": 1.0,
+      "rnn_hidden_states_MB": 0.5
+    },
+    {
+      "T": 128,
+      "rnn_loop_ms": 12.602539399998136,
+      "rnn_fused_ms": 0.3236442000002171,
+      "attention_ms": 0.678819149999299,
+      "rnn_sequential_steps": 128,
+      "attention_sequential_steps": 1,
+      "attention_scores_MB": 4.0,
+      "rnn_hidden_states_MB": 1.0
+    },
+    {
+      "T": 256,
+      "rnn_loop_ms": 29.14510514999904,
+      "rnn_fused_ms": 0.5462545999989743,
+      "attention_ms": 1.5100119999999606,
+      "rnn_sequential_steps": 256,
+      "attention_sequential_steps": 1,
+      "attention_scores_MB": 16.0,
+      "rnn_hidden_states_MB": 2.0
+    },
+    {
+      "T": 512,
+      "rnn_loop_ms": 51.099130500000456,
+      "rnn_fused_ms": 1.0135403500015627,
+      "attention_ms": 4.618056849997743,
+      "rnn_sequential_steps": 512,
+      "attention_sequential_steps": 1,
+      "attention_scores_MB": 64.0,
+      "rnn_hidden_states_MB": 4.0
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+>>> CELL 27 import subprocess, time, requests
+server = subprocess.Popen(["uvicorn", "api.app:app", "--port", "8000"])
+time.sleep(8)
+print(requests.get("http://127.0.0.1:8000/health").json())
+r = requests.post("http://127.0.0.1:8000/generate",
+                  json={"prompt": "ROMEO:", "max_new_tokens": 200, "temperature": 0.8, "seed": 0})
+print(r.json()["generated_text"])
+server.terminate()
+{'status': 'ok', 'model_loaded': True}
+ROMEO:
+The more king solemnly can expect,
+And gels them come with the bear change of sleep
+To save him stands, your ways and comes are,
+Make not the soon of Pompey.
+
+Second Murderer:
+Scannot she would be va
+

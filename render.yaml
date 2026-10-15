@@ -1,0 +1,18 @@
+# Render Blueprint: New > Blueprint > select this repository.
+services:
+  - type: web
+    name: minigpt-shakespeare
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements-api.txt
+    startCommand: uvicorn api.app:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: CHECKPOINT_PATH
+        value: checkpoints/tiny_gpt.pt
+      # Optional: if the checkpoint is not committed, point this at a GitHub
+      # release asset or a public Google Drive link and it is downloaded on start-up.
+      # - key: CHECKPOINT_URL
+      #   value: https://github.com/<user>/<repo>/releases/download/v1.0/tiny_gpt.pt

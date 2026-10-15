@@ -1,0 +1,39 @@
+# Baseline MiniGPT configuration (character-level Tiny Shakespeare).
+# Every value can be overridden from the command line, e.g.
+#   python -m src.train --set model.n_layers=6 --set train.max_steps=500
+
+model:
+  # vocab_size is set from the tokenizer at runtime (65 for Tiny Shakespeare)
+  context_length: 128
+  d_model: 128
+  n_heads: 4
+  n_layers: 4
+  ffn_dim: 512            # 4 * d_model
+  dropout: 0.1
+  pos_encoding: sinusoidal  # sinusoidal | learned | none
+  tie_weights: false
+
+data:
+  path: data/tinyshakespeare.txt
+  val_fraction: 0.1
+
+train:
+  seed: 1337
+  device: auto            # auto | cpu | cuda | mps
+  batch_size: 32
+  max_steps: 5000
+  optimizer: adamw
+  lr: 3.0e-3
+  min_lr: 3.0e-4          # cosine decay floor
+  warmup_steps: 100
+  weight_decay: 0.1
+  betas: [0.9, 0.99]
+  grad_clip: 1.0
+  eval_interval: 250
+  eval_batches: 20        # x batch_size windows of the validation split
+  sample_interval: 1000   # log a generated sample every N steps
+  sample_prompt: "ROMEO:"
+  sample_tokens: 200
+  temperature: 0.8
+  out_dir: checkpoints
+  run_name: tiny_gpt

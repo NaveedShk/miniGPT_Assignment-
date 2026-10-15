@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# data is downloaded by the code
+data/*.txt
+
+# checkpoints: only the final baseline is committed (small, ~3 MB); ablation runs are not
+checkpoints/*.pt
+!checkpoints/tiny_gpt.pt
+*.part
+
+# secrets
+.env
+*.key

@@ -1,0 +1,22 @@
+{
+  "A": {
+    "description": "causal attention + next-token (GPT)",
+    "final_train_loss": 1.5782,
+    "val_loss_scored_positions": 1.759,
+    "val_loss_last_position_only": 1.7188,
+    "sample": "ROMEO:\nI am I no all and in his bid the with suite: we my look's should\nDuke to be for steritous to blood thine mother.\n\nCome:\nIntent the dream off a and fe"
+  },
+  "B": {
+    "description": "bidirectional attention + next-token (leaky)",
+    "final_train_loss": 0.0382,
+    "val_loss_scored_positions": 0.0369,
+    "val_loss_last_position_only": 2.2611,
+    "sample": "ROMEO:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::"
+  },
+  "C": {
+    "description": "bidirectional attention + masked-LM (BERT)",
+    "final_train_loss": 2.0298,
+    "val_loss_scored_positions": 1.9918,
+    "val_loss_last_position_only": null
+  }
+}

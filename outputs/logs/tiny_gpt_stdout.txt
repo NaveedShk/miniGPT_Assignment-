@@ -1,0 +1,138 @@
+device: Tesla T4
+vocab_size: 65 | train tokens: 1,003,854 | val tokens: 111,540
+model parameters: 809,984 (810.0K)
+config: GPTConfig(vocab_size=65, context_length=128, d_model=128, n_heads=4, n_layers=4, ffn_dim=512, dropout=0.1, pos_encoding='sinusoidal', tie_weights=False, causal=True)
+step     0 | lr 3.00e-05 | train 4.2185 | val 4.2185 (ppl 67.93) | 0 tok/s | 0s
+step   250 | lr 2.99e-03 | train 2.2773 | val 2.2263 (ppl 9.27) | 235,545 tok/s | 5s
+step   500 | lr 2.96e-03 | train 1.9307 | val 1.9639 (ppl 7.13) | 231,256 tok/s | 9s
+step   750 | lr 2.88e-03 | train 1.7504 | val 1.8241 (ppl 6.20) | 248,364 tok/s | 14s
+step  1000 | lr 2.78e-03 | train 1.6576 | val 1.7356 (ppl 5.67) | 243,628 tok/s | 18s
+--- sample @ step 1000 ---
+ROMEO:
+I am I not like moine buy thy mocking.
+
+NORTHUMBERLAND:
+Why was duke in the fathed! it unto grace,
+To faith me shall burn the gran true a pleace
+Of sover fear, goest for the from heideld.
+
+SICINIUS:
+
+---
+step  1250 | lr 2.65e-03 | train 1.6015 | val 1.7033 (ppl 5.49) | 236,983 tok/s | 23s
+step  1500 | lr 2.49e-03 | train 1.5587 | val 1.6648 (ppl 5.28) | 242,578 tok/s | 28s
+step  1750 | lr 2.31e-03 | train 1.5200 | val 1.6274 (ppl 5.09) | 228,487 tok/s | 32s
+step  2000 | lr 2.12e-03 | train 1.4940 | val 1.6039 (ppl 4.97) | 238,861 tok/s | 37s
+--- sample @ step 2000 ---
+ROMEO:
+I am I not liege! if God bid they well;
+Not is no nother browers, content, by the soul.
+
+MENENIUS:
+This impiret.
+
+CLAUDIO:
+But not the king.
+
+FRIAR PETER:
+O bawd Naultis.
+
+STONS:
+
+BUCKINGHAM:
+I will 
+---
+step  2250 | lr 1.91e-03 | train 1.4823 | val 1.5980 (ppl 4.94) | 237,902 tok/s | 42s
+step  2500 | lr 1.69e-03 | train 1.4522 | val 1.5767 (ppl 4.84) | 227,572 tok/s | 47s
+step  2750 | lr 1.48e-03 | train 1.4428 | val 1.5624 (ppl 4.77) | 233,457 tok/s | 51s
+step  3000 | lr 1.27e-03 | train 1.4067 | val 1.5541 (ppl 4.73) | 228,980 tok/s | 56s
+--- sample @ step 3000 ---
+ROMEO:
+I am I note to their counsel, my lord.
+
+Nurse:
+And the fortune supposition, for six it.
+
+MERCUTIO:
+This is the sheaven commends. He would is a garl
+sovereign awhile lands, like a grief but ben:
+And w
+---
+step  3250 | lr 1.06e-03 | train 1.3964 | val 1.5323 (ppl 4.63) | 227,258 tok/s | 61s
+step  3500 | lr 8.78e-04 | train 1.3923 | val 1.5231 (ppl 4.59) | 230,253 tok/s | 66s
+step  3750 | lr 7.11e-04 | train 1.3799 | val 1.5186 (ppl 4.57) | 224,628 tok/s | 70s
+step  4000 | lr 5.68e-04 | train 1.3594 | val 1.5085 (ppl 4.52) | 233,734 tok/s | 75s
+--- sample @ step 4000 ---
+ROMEO:
+I am I not like more of your cousin;
+Our blood, my lord. They are consul,
+Prove sing of your brother in o' the shall be
+common and dream of your slips: if you will be grave
+To put the law-precious le
+---
+step  4250 | lr 4.53e-04 | train 1.3615 | val 1.5020 (ppl 4.49) | 233,156 tok/s | 80s
+step  4500 | lr 3.69e-04 | train 1.3577 | val 1.4986 (ppl 4.48) | 226,443 tok/s | 85s
+step  4750 | lr 3.17e-04 | train 1.3379 | val 1.4928 (ppl 4.45) | 238,209 tok/s | 89s
+step  5000 | lr 3.00e-04 | train 1.3282 | val 1.4929 (ppl 4.45) | 232,914 tok/s | 94s
+--- sample @ step 5000 ---
+ROMEO:
+I am I not like more of your cousin;
+Our blood, my lord. They are control--
+
+KING RICHARD III:
+I love this the seal hearts of tranion and in a garlies
+In servant early again, whom the law of city
+Now
+---
+{
+  "run_name": "tiny_gpt",
+  "parameters": 809984,
+  "model_config": {
+    "vocab_size": 65,
+    "context_length": 128,
+    "d_model": 128,
+    "n_heads": 4,
+    "n_layers": 4,
+    "ffn_dim": 512,
+    "dropout": 0.1,
+    "pos_encoding": "sinusoidal",
+    "tie_weights": false,
+    "causal": true
+  },
+  "train_config": {
+    "seed": 1337,
+    "device": "auto",
+    "batch_size": 32,
+    "max_steps": 5000,
+    "optimizer": "adamw",
+    "lr": 0.003,
+    "min_lr": 0.0003,
+    "warmup_steps": 100,
+    "weight_decay": 0.1,
+    "betas": [
+      0.9,
+      0.99
+    ],
+    "grad_clip": 1.0,
+    "eval_interval": 250,
+    "eval_batches": 20,
+    "sample_interval": 1000,
+    "sample_prompt": "ROMEO:",
+    "sample_tokens": 200,
+    "temperature": 0.8,
+    "out_dir": "checkpoints",
+    "run_name": "tiny_gpt"
+  },
+  "hardware": "Tesla T4",
+  "train_time_sec": 94.6,
+  "step_time_sec": 87.6,
+  "tokens_per_sec": 233852.0,
+  "peak_memory_mb": 249.1,
+  "final_train_loss": 1.2609,
+  "final_val_loss": 1.4929,
+  "best_val_loss": 1.4928,
+  "best_val_step": 4750,
+  "best_val_ppl": 4.45,
+  "checkpoint": "checkpoints/tiny_gpt.pt"
+}
+

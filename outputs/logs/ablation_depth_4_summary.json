@@ -1,0 +1,51 @@
+{
+  "run_name": "ablation_depth_4",
+  "parameters": 809984,
+  "model_config": {
+    "vocab_size": 65,
+    "context_length": 128,
+    "d_model": 128,
+    "n_heads": 4,
+    "n_layers": 4,
+    "ffn_dim": 512,
+    "dropout": 0.1,
+    "pos_encoding": "sinusoidal",
+    "tie_weights": false,
+    "causal": true
+  },
+  "train_config": {
+    "seed": 1337,
+    "device": "auto",
+    "batch_size": 32,
+    "max_steps": 2000,
+    "optimizer": "adamw",
+    "lr": 0.003,
+    "min_lr": 0.0003,
+    "warmup_steps": 100,
+    "weight_decay": 0.1,
+    "betas": [
+      0.9,
+      0.99
+    ],
+    "grad_clip": 1.0,
+    "eval_interval": 200,
+    "eval_batches": 20,
+    "sample_interval": 2000,
+    "sample_prompt": "ROMEO:",
+    "sample_tokens": 200,
+    "temperature": 0.8,
+    "out_dir": "checkpoints/ablation",
+    "run_name": "ablation_depth_4"
+  },
+  "hardware": "Tesla T4",
+  "train_time_sec": 37.7,
+  "step_time_sec": 35.5,
+  "tokens_per_sec": 230463.3,
+  "peak_memory_mb": 249.1,
+  "final_train_loss": 1.3984,
+  "final_val_loss": 1.6036,
+  "best_val_loss": 1.6036,
+  "best_val_step": 2000,
+  "best_val_ppl": 4.971,
+  "checkpoint": "checkpoints/ablation/ablation_depth_4.pt"
+}

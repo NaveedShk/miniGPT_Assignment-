@@ -1,0 +1,128 @@
+>>> CELL 8 !python -m experiments.attention_numeric_example
+!python -m experiments.shape_trace
+!python -m experiments.positional_encoding_viz
+
+Q:
+  [  1.0000,   0.0000]
+  [  0.0000,   1.0000]
+  [  1.0000,   1.0000]
+
+K:
+  [  1.0000,   0.0000]
+  [  0.0000,   1.0000]
+  [  1.0000,   1.0000]
+
+V:
+  [  1.0000,   2.0000]
+  [  3.0000,   4.0000]
+  [  5.0000,   6.0000]
+
+1) Q K^T:
+  [  1.0000,   0.0000,   1.0000]
+  [  0.0000,   1.0000,   1.0000]
+  [  1.0000,   1.0000,   2.0000]
+
+2) Q K^T / sqrt(d_k)   (sqrt(2) = 1.4142):
+  [  0.7071,   0.0000,   0.7071]
+  [  0.0000,   0.7071,   0.7071]
+  [  0.7071,   0.7071,   1.4142]
+
+3) softmax (row-wise)  -> each row sums to 1:
+  [  0.4011,   0.1978,   0.4011]
+  [  0.1978,   0.4011,   0.4011]
+  [  0.2483,   0.2483,   0.5035]
+
+4) output = weights @ V:
+  [  3.0000,   4.0000]
+  [  3.4067,   4.4067]
+  [  3.5105,   4.5105]
+
+================ with causal mask ================
+
+causal mask (1 = allowed, 0 = future/blocked):
+  [  1.0000,   0.0000,   0.0000]
+  [  1.0000,   1.0000,   0.0000]
+  [  1.0000,   1.0000,   1.0000]
+
+5) masked scores:
+  [  0.7071,     -inf,     -inf]
+  [  0.0000,   0.7071,     -inf]
+  [  0.7071,   0.7071,   1.4142]
+
+6) masked softmax:
+  [  1.0000,   0.0000,   0.0000]
+  [  0.3302,   0.6698,   0.0000]
+  [  0.2483,   0.2483,   0.5035]
+
+7) masked output:
+  [  1.0000,   2.0000]
+  [  2.3395,   3.3395]
+  [  3.5105,   4.5105]
+
+src.attention.scaled_dot_product_attention matches the step-by-step result.
+saved figures to /content/transformer-gpt-assignment/outputs/figures
+=== Multi-head attention shape trace  (B=2, T=8, d_model=128, n_heads=4, head_dim=32) ===
+  input x                                 (2, 8, 128)
+  Q = x W_q                               (2, 8, 128)
+  Q split into heads                    (2, 4, 8, 32)
+  attention weights per head             (2, 4, 8, 8)
+  per-head outputs                      (2, 4, 8, 32)
+  heads concatenated                      (2, 8, 128)
+  output projection W_o                   (2, 8, 128)
+
+=== Full model forward trace (B=2, T=8) ===
+  token ids                                    (2, 8)
+  token embedding                         (2, 8, 128)
+  positional encoding                        (8, 128)  (broadcast over batch)
+  after block 0                           (2, 8, 128)
+  after block 1                           (2, 8, 128)
+  after block 2                           (2, 8, 128)
+  after block 3                           (2, 8, 128)
+  final LayerNorm                         (2, 8, 128)
+  LM head logits                           (2, 8, 65)
+
+=== Model summary ===
+MiniGPT(
+  (token_emb): Embedding(65, 128)
+  (pos_enc): SinusoidalPositionalEncoding()
+  (drop): Dropout(p=0.1, inplace=False)
+  (blocks): ModuleList(
+    (0-3): 4 x TransformerBlock(
+      (ln1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+      (attn): MultiHeadAttention(
+        (q_proj): Linear(in_features=128, out_features=128, bias=True)
+        (k_proj): Linear(in_features=128, out_features=128, bias=True)
+        (v_proj): Linear(in_features=128, out_features=128, bias=True)
+        (out_proj): Linear(in_features=128, out_features=128, bias=True)
+        (resid_dropout): Dropout(p=0.1, inplace=False)
+      )
+      (ln2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+      (ffn): FeedForward(
+        (fc1): Linear(in_features=128, out_features=512, bias=True)
+        (act): GELU(approximate='none')
+        (fc2): Linear(in_features=512, out_features=128, bias=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+    )
+  )
+  (ln_f): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+  (lm_head): Linear(in_features=128, out_features=65, bias=False)
+)
+
+Parameters by component:
+  token_emb                 8,320
+  blocks.ln1                1,024
+  blocks.attn             264,192
+  blocks.ln2                1,024
+  blocks.ffn              526,848
+  ln_f                        256
+  lm_head                   8,320
+  TOTAL                   809,984  (810.0K)
+
+config: GPTConfig(vocab_size=65, context_length=128, d_model=128, n_heads=4, n_layers=4, ffn_dim=512, dropout=0.1, pos_encoding='sinusoidal', tie_weights=False, causal=True)
+saved /content/transformer-gpt-assignment/outputs/figures/fig4_positional_encoding.png
+mean cos sim at distance   1: 0.9702 (std over positions 0.0000)
+mean cos sim at distance   4: 0.7592 (std over positions 0.0000)
+mean cos sim at distance  16: 0.6203 (std over positions 0.0000)
+mean cos sim at distance  64: 0.4769 (std over positions 0.0000)
+

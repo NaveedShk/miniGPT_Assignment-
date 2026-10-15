@@ -1,0 +1,88 @@
+{
+  "metrics": {
+    "checkpoint": "/content/transformer-gpt-assignment/checkpoints/tiny_gpt.pt",
+    "parameters": 809984,
+    "val_loss": 1.4933,
+    "val_perplexity": 4.452,
+    "val_bits_per_char": 2.1544,
+    "uniform_baseline_loss": 4.1744
+  },
+  "samples": [
+    {
+      "prompt": "ROMEO:",
+      "text": "ROMEO:\nAs look and that I make him down that noble\nAnd they fear her place of quite, and that's then?\nAs it well, if uncertain famous meaning not like\ncolder by a present drunk and the fair both.\n\nPOMPEY:\nI shall say you not a patrician on a wuld\nThey have done the appear secret.\n\nDUKE OF YORK:\nNot all be"
+    },
+    {
+      "prompt": "JULIET:\nO Romeo,",
+      "text": "JULIET:\nO Romeo, what is the loss of thine own conjure?\n\nCLARENCE:\nMy lord, do I see, prepare you for this man.\n\nNurse:\nO perform'd is this street with your wretch,\nThe valiant is my lord: shall sets him herein\nAs my others rively of our such ause,\nIf hangs from his accused the meating close.\n\nCAMILLO:\nThou art for"
+    },
+    {
+      "prompt": "KING HENRY:\nWhat news",
+      "text": "KING HENRY:\nWhat news ling only that invocase thee?\n\nBENVOLIO:\nWho shall think you do come?\n\nMISTRESS OVERDONE:\nThe projure I can not be put hunged.\n\nFirst Musician:\nSirrah, nor I say, there the oaths house my lord:\nIf my husband, sir, that I am I not the Lady,\nAnd that I may play her send them shall shall all tell me\nH"
+    },
+    {
+      "prompt": "First Citizen:\n",
+      "text": "First Citizen:\nWe think the desire of so much make me my son,\nThat I think the subjects thou very well.\nWhat thou wilt I see with all great call thy delivers?\n\nISABELLA:\nThe country live and remember all.\n\nCLARENCE:\nBetter the prince send?\n\nVIRGILIA:\nBefore the truth; my lord, I pray the liege,\nSeem them him bears"
+    },
+    {
+      "prompt": "To be, or not to be",
+      "text": "To be, or not to be the prince.\n\nSICINIUS:\nIs that he proclaim'd more crown: why, is't the glock,\nWhereon our soldiers best kiss than thou shouldst\nAll be her.\n\nHENRY BOLINGBROKE:\nI must not have straight design to the deed.\n\nPLINCESTER:\nAy, now my lords, I would not care him friend\nThat I to tell thee, on a very rest"
+    }
+  ],
+  "decoding": {
+    "greedy (T=0)": {
+      "stats": {
+        "distinct_word_1": 0.216,
+        "distinct_word_2": 0.309,
+        "repeated_char_4gram_frac": 0.726,
+        "valid_word_frac": 1.0
+      },
+      "text": "ROMEO:\nI will not so so much a straight of the court.\n\nLEONTES:\nWhat is the country?\n\nCORIOLANUS:\nI will not see the prince of the country's son,\nThat I will be so much a straight of the sea\nThat the state of the seat of the seat of the sea\nThat the state of the state of the state of the sea\nThat the state of the state of the state of the sea\nThat the state of the state of the state of the sea\nThat the state of the state of the state of the sea\nThat the state of the state of the state of the sea\nThat "
+    },
+    "T=0.5": {
+      "stats": {
+        "distinct_word_1": 0.69,
+        "distinct_word_2": 0.99,
+        "repeated_char_4gram_frac": 0.199,
+        "valid_word_frac": 0.98
+      },
+      "text": "ROMEO:\nI can lose thee, and there shall be a necked for thee.\n\nPETRUCHIO:\nWhy, the crown that stands thee,\nThat would have seen to the deed hands and make him\nThat change he did should be stand upon his forth.\n\nGLOUCESTER:\nThen I have not the under that I did speak a sword;\nThe common of your brother soul, and do you say\nThe seen and his good friends, in his honour.\n\nKING RICHARD III:\nGo, come, for the midning was for the contempt,\nWhich thou art like a noble forth to find\nMust be seen in the common o"
+    },
+    "T=0.8": {
+      "stats": {
+        "distinct_word_1": 0.765,
+        "distinct_word_2": 1.0,
+        "repeated_char_4gram_frac": 0.123,
+        "valid_word_frac": 0.951
+      },
+      "text": "ROMEO:\nAs look and that I make him down that noble\nAnd they fear her place of quite, and that's then?\nAs it well, if uncertain famous meaning not like\ncolder by a present drunk and the fair both.\n\nPOMPEY:\nI shall say you not a patrician on a wuld\nThey have done the appear secret.\n\nDUKE OF YORK:\nNot all better than visit 'name I have shown.\n\nANTIGONUS:\nSo, then shall I should be both out of the day,\nBecause I from the poor own proparent of their cold,\nWith a man short in him unward: but if we were\nwe m"
+    },
+    "T=1.0": {
+      "stats": {
+        "distinct_word_1": 0.765,
+        "distinct_word_2": 0.99,
+        "repeated_char_4gram_frac": 0.115,
+        "valid_word_frac": 0.929
+      },
+      "text": "ROMEO:\nAs look and for your great sun.\n\nSICINIUS:\nA fellow eyes are deliver\nTo dream a weeping king, from the particiu\nIn sigh fame, cheering noble leads, a woman's fool.\n\nFLORIZEL:\nThey but not not say, but men so it not usurpose;\nNow, like turn a rent mercy from a great\nMeanest that consuls, when alsomething do we\nwere not of the pass poor clease of mother;\nOr bidems that I prove to-none the day, when\nAs I freak up to make the day night?\nHail, will I plot make your bring duke brother's\nWould not hav"
+    },
+    "T=1.5": {
+      "stats": {
+        "distinct_word_1": 0.94,
+        "distinct_word_2": 1.0,
+        "repeated_char_4gram_frac": 0.046,
+        "valid_word_frac": 0.747
+      },
+      "text": "ROMEO:\nKind Lord, days, and not the neath, annd Lodowe thought\nWas go lamp'd cqure of kintnal's planly spirit.\n\nWARWICK:\nWeigh fame!--\nSon, 'tis trulh, thy temp and foolish prevain,\nThey but not night a, but Welvesditize husband;\nHis heaviol'd, dark,\nMy more fattheral were couvertors; consuls, Thus?\n\nLEONTES:\nCome, faith's deserve! O, by to queen,\nWofuls, too hopest, Keep\nMrings o-hope, Froth.\ndo, G LAUNTES:\nIt any you had\nHow: that night?\nHeir, widow! her, now, both: fie!\nMunward? judy, to: welcoward"
+    },
+    "T=0.8, top-k=10": {
+      "stats": {
+        "distinct_word_1": 0.77,
+        "distinct_word_2": 1.0,
+        "repeated_char_4gram_frac": 0.133,
+        "valid_word_frac": 0.95
+      },
+      "text": "ROMEO:\nAs I have stay'd the matter'd with all,\nAnd the words of thee that true the crown\nAnd have bring our world.\n\nProvost:\nThe mercy of the contral of his house are son?\n\nLUCIO:\nHe had but not cheer and do well say 'Think your honour,\nYou have been it shall be my consent in this brother.\n\nSecond Senator:\nNo, no more comes born to be.\n\nFirst Lord:\nThe strong hours and heart\nWere the wood, the did self and all wancus.\n\nSecond Citizen:\nI would be slight her to me be to find\nMuch before you say, and hom"
+    }
+  }
+}
